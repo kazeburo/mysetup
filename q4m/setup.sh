@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-MYVER=5.1.60
+MYVER=5.1.59
 Q4MVER=0.9.5
 
 CDIR=$(cd $(dirname $0) && pwd)
