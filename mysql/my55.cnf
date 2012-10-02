@@ -1,6 +1,10 @@
 [client]
 port            = 3306
 socket          = /var/lib/mysql/mysql.sock
+
+[mysql]
+no-auto-rehash
+#safe-updates
 prompt          = '\u@<HOSTNAME> mysql>'
 
 [mysqld]
@@ -56,24 +60,11 @@ innodb_lock_wait_timeout = 120
 quick
 max_allowed_packet = 16M
 
-[mysql]
-no-auto-rehash
-#safe-updates
-
-[isamchk]
-key_buffer = 128M
-sort_buffer_size = 8M
-read_buffer = 1M
-write_buffer = 0M
-
 [myisamchk]
 key_buffer = 8M
 sort_buffer_size = 8M
 read_buffer = 1M
 write_buffer = 0M
-
-[mysqlhotcopy]
-interactive-timeout
 
 [mysqld_safe]
 open-files-limit = 8192

@@ -1,6 +1,10 @@
 [client]
 port            = 3306
 socket          = /var/lib/mysql/mysql.sock
+
+[mysql]
+no-auto-rehash
+#safe-updates
 prompt          = '\u@<HOSTNAME> mysql>'
 
 [mysqld]
@@ -45,10 +49,6 @@ innodb_flush_method = O_DIRECT
 [mysqldump]
 quick
 max_allowed_packet = 1M
-
-[mysql]
-no-auto-rehash
-#safe-updates
 
 [myisamchk]
 key_buffer = 8M
