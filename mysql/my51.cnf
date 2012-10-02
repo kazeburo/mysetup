@@ -22,6 +22,7 @@ read_buffer_size = 1M
 myisam_sort_buffer_size = 1M
 thread_cache = 256
 query_cache_size = 0M
+query_cache_type = 0
 thread_concurrency = 8
 tmp_table_size = 64M
 skip-name-resolve
