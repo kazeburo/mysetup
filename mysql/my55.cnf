@@ -25,6 +25,7 @@ query_cache_size = 0M
 query_cache_type = 0
 thread_concurrency = 8
 tmp_table_size = 64M
+max_heap_table_size = 64M
 skip-name-resolve
 character-set-server=utf8
 default-storage-engine=InnoDB
