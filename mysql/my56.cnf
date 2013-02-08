@@ -28,6 +28,7 @@ max_heap_table_size = 64M
 skip_name_resolve
 character_set_server = utf8
 default_storage_engine = InnoDB
+explicit_defaults_for_timestamp
 
 sql_mode = "STRICT_ALL_TABLES,NO_ZERO_DATE,NO_ZERO_IN_DATE"
 
@@ -67,6 +68,8 @@ innodb_buffer_pool_load_at_startup = 1
 innodb_buffer_pool_dump_at_shutdown = 1
 innodb_checksum_algorithm = CRC32 # InnoDB for back compatibility
 innodb_io_capacity = 200 # 2000 for ssd
+innodb_large_prefix = 1
+innodb_print_all_deadlocks =1
 
 [mysqldump]
 quick
