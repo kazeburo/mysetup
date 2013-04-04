@@ -6,6 +6,7 @@ socket          = /var/lib/mysql/mysql.sock
 no-auto-rehash
 #safe-updates
 prompt          = '\u@<HOSTNAME> mysql>'
+default_character_set = utf8
 
 [mysqld]
 datadir = /var/lib/mysql
@@ -36,8 +37,9 @@ binlog_format=mixed
 log_slave_updates
 replicate-ignore-db=mysql
 
-slow_query_log
+slow_query_log = 1
 long_query_time = 3
+log_slow_slave_statements = 1
 
 server-id       = <SERVER_ID>
 

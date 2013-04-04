@@ -6,6 +6,8 @@ socket          = /var/lib/mysql/mysql.sock
 no-auto-rehash
 #safe-updates
 prompt          = '\u@\h>'
+# also can use utf8mb4
+default_character_set = utf8
 
 [mysqld]
 datadir         = /var/lib/mysql
@@ -27,6 +29,7 @@ thread_concurrency = 8
 tmp_table_size = 64M
 max_heap_table_size = 64M
 skip-name-resolve
+# also can use utf8mb4
 character-set-server=utf8
 default-storage-engine=InnoDB
 
