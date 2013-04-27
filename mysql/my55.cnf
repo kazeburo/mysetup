@@ -12,7 +12,7 @@ default_character_set = utf8
 [mysqld]
 datadir         = /var/lib/mysql
 port            = 3306
-socket          = /tmp/mysql.sock
+socket          = /var/lib/mysql/mysql.sock
 skip-external-locking
 key_buffer = 32M
 max_allowed_packet = 8M
