@@ -64,7 +64,7 @@ chmod 755 /usr/local/q4m/var
 /etc/init.d/q4m start
 
 cat storage/q4m/support-files/install.sql | /usr/local/q4m/bin/mysql -S /tmp/mysql_q4m.sock
-echo "show plugins" | | /usr/local/q4m/bin/mysql -S /tmp/mysql_q4m.sock
+echo "show plugins" | /usr/local/q4m/bin/mysql -S /tmp/mysql_q4m.sock
 
 
 
