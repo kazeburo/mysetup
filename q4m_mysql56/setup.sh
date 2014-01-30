@@ -23,7 +23,7 @@ fi
 tar zxf q4m-$Q4MVER.tar.gz
 mv q4m-$Q4MVER mysql-$MYVER/storage/q4m
 if [ ! -f mysql-$MYVER/storage/q4m/CMakeLists.txt ]; then
-  curl -kL https://raw.github.com/q4m/q4m/0.9.11/CMakeLists.txt > mysql-$MYVER/storage/q4m/CMakeLists.txt
+  curl -kL https://raw.github.com/q4m/q4m/$Q4MVER/CMakeLists.txt > mysql-$MYVER/storage/q4m/CMakeLists.txt
 fi
 
 yum install -y cmake ncurses-devel libaio-devel
