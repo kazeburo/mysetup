@@ -1,0 +1,12 @@
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "chef/centos-6.5"
+  config.vm.synced_folder "./", "/vagrant"
+  config.vm.provision "shell", run: "always",
+    inline: 'yum -y groupinstall "Development Tools"'
+  config.vm.provision "shell", run: "always",
+    inline: "cd /vagrant; sh ./setup.sh"
+  config.vm.provision "shell", run: "always", path: "run_test.sh"
+  config.vm.provision "destroy", destroy: true, run: "always"
+end
