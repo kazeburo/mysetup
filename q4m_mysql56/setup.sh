@@ -1,8 +1,8 @@
 #!/bin/sh
 set -e
 
-MYVER=5.6.15
-Q4MVER=0.9.11
+MYVER=5.6.20
+Q4MVER=0.9.14
 
 CDIR=$(cd $(dirname $0) && pwd)
 cd /usr/local/src
