@@ -9,6 +9,11 @@ cd /usr/local/src
 if [ -f $CDIR/mysql-$MYVER.tar.gz ]; then
     cp $CDIR/mysql-$MYVER.tar.gz ./
 fi
+
+if [ -d mysql-$MYVER ]; then
+    rm -rf mysql-$MYVER
+fi
+
 if [ ! -f mysql-$MYVER.tar.gz ]; then
     wget http://ftp.jaist.ac.jp/pub/mysql/Downloads/MySQL-5.6/mysql-$MYVER.tar.gz
 fi
@@ -25,6 +30,10 @@ mv q4m-$Q4MVER mysql-$MYVER/storage/q4m
 if [ ! -f mysql-$MYVER/storage/q4m/CMakeLists.txt ]; then
   curl -kL https://raw.github.com/q4m/q4m/$Q4MVER/CMakeLists.txt > mysql-$MYVER/storage/q4m/CMakeLists.txt
 fi
+
+cd mysql-$MYVER/storage/q4m
+cat $CDIR/q4m_test_queuewait_noinnodb.patch | patch -p0
+cd /usr/local/src
 
 yum install -y cmake ncurses-devel libaio-devel
 cd mysql-$MYVER

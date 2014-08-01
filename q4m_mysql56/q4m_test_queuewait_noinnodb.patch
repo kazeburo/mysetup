@@ -1,0 +1,53 @@
+diff -ru t.orig/05-multireader.t t/05-multireader.t
+--- t.orig/05-multireader.t	2014-07-01 05:51:29.025061589 +0000
++++ t/05-multireader.t	2014-07-01 05:52:28.355712740 +0000
+@@ -77,8 +77,9 @@
+         for (my $j = 0; $j < $loop; $j++) {
+             my $rows;
+             do {
++                $dbh->selectall_arrayref("select queue_wait('q4m_t')");
+                 $rows = $dbh->selectall_arrayref(
+-                    "select * from q4m_t where queue_wait('q4m_t')",
++                    "select * from q4m_t",
+                 ) or die $dbh->errstr;
+             } while (! @$rows);
+             print "$rows->[0]->[0]\n";
+diff -ru t.orig/05-multirw.t t/05-multirw.t
+--- t.orig/05-multirw.t	2014-07-01 05:54:07.629327008 +0000
++++ t/05-multirw.t	2014-07-01 05:54:42.208602668 +0000
+@@ -69,8 +69,9 @@
+             insert_row($loop * $i + $j);
+             my $rows;
+             do {
++                $dbh->selectall_arrayref("select queue_wait('q4m_t')");
+                 $rows = $dbh->selectall_arrayref(
+-                    "select * from q4m_t where queue_wait('q4m_t')",
++                    "select * from q4m_t",
+                 ) or die $dbh->errstr;
+             } while (@$rows == 0);
+             print "$rows->[0]->[0]\n";
+diff -ru t.orig/16-upgrade.t t/16-upgrade.t
+--- t.orig/16-upgrade.t	2014-07-01 05:56:06.403678504 +0000
++++ t/16-upgrade.t	2014-07-01 05:20:20.765399606 +0000
+@@ -28,6 +28,8 @@
+ my $mysqld = Test::mysqld->new(
+     my_cnf => {
+         'skip-networking' => '',
++        'default-storage-engine' => 'MyISAM',
++        'default-tmp-storage-engine' => 'MyISAM'
+     },
+     mysql_install_db => get_path_of(qw(mysql_install_db bin scripts)),
+     mysqld           => get_path_of(qw(mysqld libexec bin)),
+--- t.orig/05-multiwait.t	2014-01-27 09:15:48.000000000 +0000
++++ t/05-multiwait.t	2014-07-01 06:52:38.647267527 +0000
+@@ -68,8 +68,9 @@
+         for (my $j = 0; $j < $loop; $j++) {
+             my $rows;
+             do {
++                $dbh->selectall_arrayref("select queue_wait('q4m_t')");
+                 $rows = $dbh->selectall_arrayref(
+-                    "select * from q4m_t where queue_wait('q4m_t')",
++                    "select * from q4m_t",
+                 ) or die $dbh->errstr;
+             } while (@$rows == 0);
+             print "$rows->[0]->[0]\n";
