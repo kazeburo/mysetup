@@ -10,7 +10,7 @@ This script builds mysql and q4m and installs to /usr/local/q4m. And installs a 
 
     $ sudo service q4m start
 
-# test width vagrant
+# test with vagrant
 
     $ vagrant plugin install vagrant-destroy-provisioner
     $ vagrant up
