@@ -15,7 +15,7 @@ if [ -d mysql-$MYVER ]; then
 fi
 
 if [ ! -f mysql-$MYVER.tar.gz ]; then
-    wget http://ftp.jaist.ac.jp/pub/mysql/Downloads/MySQL-5.6/mysql-$MYVER.tar.gz
+    wget http://downloads.mysql.com/archives/mysql-5.6/mysql-$MYVER.tar.gz
 fi
 tar zxf mysql-$MYVER.tar.gz
 
